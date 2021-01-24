@@ -1,3 +1,30 @@
+body {
+  background-color: black;
+}
+
 #video {
   display: none;
+}
+
+.DebugCanvas {
+  position: absolute;
+  left: calc(50% - 300px);
+  top: calc(50% - 200px);
+}
+
+.PoseDetection {
+  top: calc(50vh - 5rem);
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  font-size: 5rem;
+  color: pink;
+  font-weight: bold;
+}
+
+
+.MainExperience { 
+  position: absolute;
+  width: 100vw;
+  height: 100vh
 }

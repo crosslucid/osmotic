@@ -1,17 +1,18 @@
 import React from 'react';
 import { TFProvider } from './TFContext';
 import { CameraProvider } from './CameraContext';
-import IntroSwitch from './IntroSwitch';
+import ExperienceSwitch from './ExperienceSwitch';
+
 import './App.css';
 
 const App = () =>
   <div className="App">
-    <video id="video" width="600" height="300"></video>
-    <TFProvider>
-      <CameraProvider>
-        <IntroSwitch />
-      </CameraProvider>
-    </TFProvider>
+    <CameraProvider>
+      <TFProvider>
+        <ExperienceSwitch />
+      </TFProvider>
+    </CameraProvider>
+
   </div>;
 
 export default App;

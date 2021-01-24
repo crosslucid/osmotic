@@ -1,15 +1,12 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
 
 
 const CameraContext = createContext();
 CameraContext.displayName = 'CameraContext';
 
-
-
-const setupCamera = async () => {
-  const video = document.getElementById('video');
+const setupCamera = async (video) => {
   const width = 600;
-  const height = 300;
+  const height = 400;
 
   const stream = await navigator.mediaDevices.getUserMedia({
     'audio': false,
@@ -31,16 +28,21 @@ const setupCamera = async () => {
 
 const CameraProvider = ({ children }) => {
   const [ cameraReady, setCameraReady ] = useState(false);
-
+  const videoRef = useRef();
   useEffect(() => {
     const loadCamera = async () => {
-      await setupCamera();
+      await setupCamera(videoRef.current);
       setCameraReady(true);
     }
-    loadCamera();
-  });
+    videoRef.current && !cameraReady && loadCamera();
+  }, [cameraReady, setCameraReady]);
 
-  return <CameraContext.Provider value={{ cameraReady }}>{children}</CameraContext.Provider>
+  return (
+    <CameraContext.Provider value={{ cameraReady }}>
+      <video ref={videoRef} id="video" width="600" height="400"></video>
+      {children}
+    </CameraContext.Provider>
+  )
 }
 
 const useCamera = () => useContext(CameraContext);
