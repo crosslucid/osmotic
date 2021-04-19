@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 import '@tensorflow/tfjs-backend-webgl';
 import * as posenet from '@tensorflow-models/posenet';
-import { useCamera } from './CameraContext';
 import { keyBy } from 'lodash';
 
 const TFContext = createContext();
@@ -26,7 +25,6 @@ const detectPose = (keypoints) => {
 const TFProvider = ({ children }) => {
   const [ net, setNet ] = useState();
   const [ keypoints, setKeypoints ] = useState(null);
-  const { cameraReady } = useCamera();
 
   useEffect(() => {
     const loadNet = async  () => {    
@@ -38,10 +36,11 @@ const TFProvider = ({ children }) => {
     loadNet();
   }, []);
 
+  const netReady = !!net;
 
   useEffect(() => {
     const drawResult = async () => {
-      const video = document.getElementById('video');
+      const video = document.getElementById('CameraFeed');
       const result = await net.estimateSinglePose(video, {
         flipHorizontal: true,
         scoreThreshold: 0.8,
@@ -49,11 +48,11 @@ const TFProvider = ({ children }) => {
       setKeypoints(keyBy(result.keypoints, 'part'));
       requestAnimationFrame(drawResult);
     };
-    if (net && cameraReady && !keypoints) {
+    if (netReady && !keypoints) {
       console.log('something changed')
       drawResult();
     }
-  }, [!!net, cameraReady, keypoints])
+  }, [!!net, keypoints])
 
   const pose = keypoints ? detectPose(keypoints) : 'none'
   return <TFContext.Provider value={{ keypoints, pose }}>{children}</TFContext.Provider>

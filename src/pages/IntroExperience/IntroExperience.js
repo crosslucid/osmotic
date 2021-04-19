@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTF } from '../TFContext';
-import TextLine from '../components/TextLine';
+import { useTF } from '../../contexts/TFContext';
+import TextLine from '../../components/TextLine';
 
 const IntroExperience = () => {
   const { pose, keypoints } = useTF();

@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
 import './App.css';
-import { CameraProvider } from './contexts/CameraContext';
+import AppProvider, { useApp } from './contexts/AppContext';
+import CameraFeed from './components/CameraFeed';
+import { TFProvider } from './contexts/TFContext';
+import IntroExperience from './pages/IntroExperience';
 
-const App = () =>  {
-  const [ phase, setPhase ] = useState(1)
+const AppTemplate = () =>  {
+  const { step } = useApp();
   return (
     <div className="App">
-      <CameraProvider>
-        {phase}
-      </CameraProvider>
+      <CameraFeed />
+      <TFProvider>
+        <IntroExperience />
+      </TFProvider>
     </div>
   );
-}
+};
+
+const App = () => 
+  <AppProvider>
+    <AppTemplate />
+  </AppProvider>;
 
 export default App;
