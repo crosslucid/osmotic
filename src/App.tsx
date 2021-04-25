@@ -4,20 +4,16 @@ import CameraFeed from './components/CameraFeed';
 import { TFProvider } from './contexts/TFContext';
 import IntroExperience from './pages/IntroExperience';
 import MainExperience from './pages/MainExperience';
-import SplashScreen from './pages/SplashScreen';
-import { Canvas } from 'react-three-fiber'
 
 const TFSteps = [
   'Intro',
   'Instructions',
-  'Main',
+  'MainExperience',
 ];
 
 const StepComponents = {
   CameraPermission: () => <div>accept permissions</div>,
-  SplashScreen: SplashScreen,
   Intro: IntroExperience,
-  Instructions: IntroExperience,
   MainExperience: MainExperience,
   Error: () => <div>error</div>,
 }

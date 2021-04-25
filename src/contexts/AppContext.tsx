@@ -7,9 +7,7 @@ export interface IAppContextValue extends IAppState {
 
 const appSteps = [
   'CameraPermission',
-  'SplashScreen',
   'Intro',
-  'Instructions',
   'MainExperience',
   'Error',
 ] as const;

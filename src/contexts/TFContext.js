@@ -15,8 +15,9 @@ const detectPose = (keypoints) => {
   ) return 'too_close';
 
   if (
-    (rightWrist.position.y > nose.position.y) 
-    || (leftWrist.position.y > nose.position.y)
+    rightWrist.score < 0.3 || leftWrist.score < 0.3 ||
+    (rightWrist.position.y > rightShoulder.position.y) 
+    || (leftWrist.position.y > rightShoulder.position.y)
   ) return 'hands_down';
   return 'hands_up';
 }
