@@ -3,9 +3,9 @@ import { useTF } from '../../contexts/TFContext';
 import TextLine from '../../components/TextLine';
 
 const IntroExperience = () => {
-  const { pose, keypoints } = useTF();
+  const { pose } = useTF();
   return (
-    <div className="PoseDetection">
+    <div className="Page PoseDetection">
       { pose }
       <TextLine text="I am a line" />
     </div>

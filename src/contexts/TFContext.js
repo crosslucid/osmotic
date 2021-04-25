@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import '@tensorflow/tfjs-backend-webgl';
 import * as posenet from '@tensorflow-models/posenet';
@@ -6,7 +6,6 @@ import { keyBy } from 'lodash';
 
 const TFContext = createContext();
 TFContext.displayName = 'TFContext';
-
 
 const detectPose = (keypoints) => {
   const { rightWrist, leftWrist, nose, leftShoulder, rightShoulder } = keypoints;
@@ -52,7 +51,7 @@ const TFProvider = ({ children }) => {
       console.log('something changed')
       drawResult();
     }
-  }, [!!net, keypoints])
+  }, [netReady, keypoints])
 
   const pose = keypoints ? detectPose(keypoints) : 'none'
   return <TFContext.Provider value={{ keypoints, pose }}>{children}</TFContext.Provider>
