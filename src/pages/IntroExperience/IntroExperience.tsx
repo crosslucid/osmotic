@@ -45,6 +45,7 @@ const IntroExperience = () => {
   const [ step, setStep ] = useState<IntroStep>('BEGINNING');
   const { advanceStep } = useApp();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleClick = () => (step === 'ACCESS') && setStep('INSTRUCTION_START');
 
@@ -60,6 +61,11 @@ const IntroExperience = () => {
       video.removeEventListener('timeupdate', onTimeUpdate)
     }
   }, []);
+
+  useEffect(() => {
+    audioRef.current!.volume = 0.4
+  }, [audioRef.current]);
+
 
   useEffect(() => {
     const video = videoRef.current;
@@ -114,6 +120,7 @@ const IntroExperience = () => {
          src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/OSMOTIC_PASSAGE_EXP_SOUND.mp4"
          autoPlay
          loop
+         ref={audioRef}
       />
       <video
         ref={videoRef}
