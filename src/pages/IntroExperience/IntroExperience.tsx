@@ -111,7 +111,7 @@ const IntroExperience = () => {
         { textMap[step](pose, correctPoseTime) }
       </div>
       <audio
-         src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/EXPERIENCE_STAND_IN.mp3"
+         src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/OSMOTIC_PASSAGE_EXP_SOUND.mp4"
          autoPlay
          loop
       />

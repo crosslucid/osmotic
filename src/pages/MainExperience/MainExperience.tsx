@@ -46,6 +46,7 @@ const MainExperience = () => {
       setStep('END_EXPERIENCE')
     }
     applyStep();
+    console.log({ step, incorrectPoseTime })
   }, [incorrectPoseTime])
 
 
@@ -58,8 +59,16 @@ const MainExperience = () => {
         <br />
         Incorrect pose time: { incorrectPoseTime }
       </div>
-
+      <audio
+         src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/EXPERIENCE_STAND_IN.mp3"
+         autoPlay
+         loop
+      />
       <video
+        style={{
+          transition: '1s filter linear',
+          filter: `blur(${incorrectPoseTime / 2}px)`
+        }}
         ref={videoRef}
         id="VideoSource"
         crossOrigin="anonymous"
