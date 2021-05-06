@@ -67,7 +67,7 @@ const MainExperience = () => {
       <video
         style={{
           transition: '1s filter linear',
-          filter: `blur(${incorrectPoseTime / 2}px)`
+          filter: `blur(${incorrectPoseTime * 2}px) saturate(${1 + incorrectPoseTime / 2})`
         }}
         ref={videoRef}
         id="VideoSource"

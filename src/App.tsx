@@ -20,7 +20,7 @@ const StepComponents = {
 
 const AppTemplate = () =>  {
   const { step } = useApp();
-  const StepComponent = StepComponents[step];
+  const StepComponent = StepComponents.MainExperience;
   return (
     <div className="App">
       <CameraFeed />
