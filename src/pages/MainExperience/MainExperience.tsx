@@ -68,7 +68,8 @@ const MainExperience = () => {
         filter.frequency.value = 10000 - incorrectPoseTime * 480;
       }
     }
-  }, [incorrectPoseTime])
+  }, [incorrectPoseTime]);
+
   return (
     <div className="Page MainExperience">
       <div className="Debugger">
@@ -94,7 +95,7 @@ const MainExperience = () => {
         className="VideoSource"
         crossOrigin="anonymous"
         autoPlay
-        src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/OSMOTIC_PASSAGE_XR_NOSOUND.mp4"
+        src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/OSMOTIC_PASSAGE_XP_MAIN.mp4"
       />
       <video
         ref={videoRef}

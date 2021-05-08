@@ -7,6 +7,14 @@
 .TextBox {
   margin: auto;
   font-size: 2em;
-  color:aquamarine;
+  color:white;
+  max-width: 800px;
+}
+
+.Credits {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   text-align: center;
+  color: white;
 }

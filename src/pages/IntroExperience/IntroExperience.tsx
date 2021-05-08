@@ -60,7 +60,11 @@ const IntroExperience = () => {
   }, [step, position])
 
   return (
-    <div className="Page IntroExperience" onClick={handleClick}>
+    <div
+      className="Page IntroExperience"
+      onClick={handleClick}
+      style={{ cursor: (step === 'ACCESS') ? 'pointer' : 'default'}}
+    >
       <div className="Debugger">
         Time: { position }
         <br />

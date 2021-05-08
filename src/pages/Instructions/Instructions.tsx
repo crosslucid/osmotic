@@ -45,7 +45,6 @@ const IntroExperience = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    advanceStep()
 
     if (!video) return;
     video.currentTime = startTime;
