@@ -77,6 +77,7 @@ const IntroExperience = () => {
         id="VideoSource"
         className="VideoSource"
         autoPlay
+        loop
         crossOrigin="anonymous"
         src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/OSMOTIC_PASSAGE_INTRO_TEXT.mp4"
       />
