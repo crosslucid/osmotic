@@ -75,6 +75,7 @@ const IntroExperience = () => {
       <video
         ref={videoRef}
         id="VideoSource"
+        className="VideoSource"
         autoPlay
         crossOrigin="anonymous"
         src="https://osmotic-passage.s3.eu-central-1.amazonaws.com/OSMOTIC_PASSAGE_INTRO_TEXT.mp4"

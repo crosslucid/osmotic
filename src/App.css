@@ -8,7 +8,7 @@ video {
   top: calc(50% - 200px);
 }
 
-#VideoSource {
+.VideoSource {
   display: block;
   object-fit: cover;
   width: 100vw;
@@ -16,6 +16,7 @@ video {
   position: fixed;
   top: 0;
   left: 0;
+  background-color: black;
 }
 
 .Debugger {
@@ -40,5 +41,7 @@ video {
 .App { 
   position: absolute;
   width: 100vw;
-  height: 100vh
+  height: 100vh;
+  background-color: black;
+
 }
