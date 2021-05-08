@@ -24,7 +24,6 @@ const MainExperience = () => {
   }, []);
 
   useEffect(() => {
-    console.log(pose)
     if (pose !== 'hands_up') {
       if (incorrectPoseTime < 20) setIncorrectPoseTime(incorrectPoseTime + 1);
     } else {
@@ -46,7 +45,6 @@ const MainExperience = () => {
       setStep('END_EXPERIENCE')
     }
     applyStep();
-    console.log({ step, incorrectPoseTime })
   }, [incorrectPoseTime])
 
 

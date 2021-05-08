@@ -6,8 +6,9 @@ export interface IAppContextValue extends IAppState {
 };
 
 const appSteps = [
-  'CameraPermission',
   'Intro',
+  'CameraPermission',
+  'Instructions',
   'MainExperience',
   'Error',
 ] as const;
@@ -23,7 +24,7 @@ export interface IAppState {
 export type AppAction = { type: string, payload?: any  };
 
 const initialState = {
-  step: "CameraPermission"
+  step: "Intro"
 };
 
 const getNextStep = (currentStep: AppStep):AppStep =>
@@ -34,6 +35,7 @@ const appReducer = (state:IAppState, action:AppAction) => {
     case 'error': 
       return { step: state.step, error: action.payload };
     case 'nextStep':
+      console.log('step', state.step, 'next step', getNextStep(state.step))
       return { step: getNextStep(state.step) };
     case 'stepTo':
       return { step: action.payload };

@@ -5,7 +5,6 @@ import type { AppErrors } from '../contexts/AppContext'
 const setupCamera = async (video:HTMLVideoElement, onError:(error: AppErrors) => void):Promise<void> => {
   const width = 600;
   const height = 400;
-
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
       'audio': false,
@@ -31,15 +30,17 @@ const setupCamera = async (video:HTMLVideoElement, onError:(error: AppErrors) =>
 const CameraFeed = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const { sendError, advanceStep } = useApp();
+  
   useEffect(() => {
     const loadCamera = async () => {
       if (videoRef.current) {
         await setupCamera(videoRef.current, sendError);
+        document.getElementById('App')?.requestFullscreen();
         advanceStep();
       }
     }
     loadCamera();
-  }, [sendError, advanceStep]);
+  }, [sendError, advanceStep, videoRef]);
 
   return (
     <video ref={videoRef} id="CameraFeed" width="600" height="400"></video>

@@ -1,0 +1,12 @@
+.CameraPermissions {
+  background-image: url('./InstructionBg.png');
+  background-size: cover;
+  display: flex;
+}
+
+.TextBox {
+  margin: auto;
+  font-size: 2em;
+  color:aquamarine;
+  text-align: center;
+}
