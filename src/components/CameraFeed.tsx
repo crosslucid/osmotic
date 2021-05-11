@@ -35,7 +35,6 @@ const CameraFeed = () => {
     const loadCamera = async () => {
       if (videoRef.current) {
         await setupCamera(videoRef.current, sendError);
-        document.getElementById('App')?.requestFullscreen();
         advanceStep();
       }
     }

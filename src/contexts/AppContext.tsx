@@ -24,7 +24,7 @@ export interface IAppState {
 export type AppAction = { type: string, payload?: any  };
 
 const initialState = {
-  step: "CameraPermission"
+  step: "Intro"
 };
 
 const getNextStep = (currentStep: AppStep):AppStep =>
